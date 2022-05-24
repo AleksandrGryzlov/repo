@@ -37,6 +37,7 @@ void NewF1()
 		cout << Array2[i] << endl;
 	}
 	delete[] Array1;
+	Array1 = nullptr;
 }
 
 void NewF2()
@@ -59,6 +60,7 @@ void NewF2()
 		cout << *(ptr2 + i) << endl;
 	}
 	delete ptr1;
+	ptr1 = nullptr;
 }
 
 string NewF3()
