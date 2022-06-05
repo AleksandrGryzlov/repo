@@ -10,5 +10,7 @@ Implement the Bag receipt using bag.h
 #include "bag.h"
 
 class ReceiptBag {
-
+public:
+private:
+	int receipt = 0;
 };
