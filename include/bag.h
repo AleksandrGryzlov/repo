@@ -1,18 +1,18 @@
 //
 // File:   bag.h
-// Author: Your Glorious Instructor
+// Author: Aleksandr Gryzlov
 // Purpose:
-// Implement the Bag ADT.
+// Implement the Bag using linked list.h
 //
 #pragma once
 #include <iostream>
-#include "vector.h"
+#include "list.h"
 
 template <typename Thing>
 class Bag {
 public:
   bag() {
-    bagContents = new vector<Thing *>;
+    bagContents = new List<Thing *>;
     bagContents[0] = nullptr;
   }
   ~bag() {
@@ -21,6 +21,9 @@ public:
   }
   void insert(Thing aThing) {
     bagContents.push_back(&aThing);
+  }
+  void delet(Thing aThing) {
+      bagContents.delete(&aThing);
   }
   Thing &pop() {
     Thing * ptrToAThing;
@@ -40,5 +43,5 @@ public:
     return bagContents.size();
   }
 private:
-  vector<Thing *> *bagContents;
+  List<Thing *> *bagContents;
 }
