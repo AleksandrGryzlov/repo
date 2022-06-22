@@ -6,37 +6,63 @@ Aleksandr Gryzlov
 
 #include <iostream>
 #include <fstream>
+#include <string>
+#include "text.txt"
 #include "Array.h"
 #include "vector.h"
-#include "Queue.h"
 using namespace std;
-void AllItems(class,class,class);
-void Selected(class);
-void Done();
 
 int main()
 {
-	int choice = 0; //declaire variable to use in switch later
-	
+	ifstream inFile;
+	ofstream ofFile;
+	inFile.open("Text.txt");
+	ofFile.open("text.txt");
+	File.close();
+
+	int choice = 0, count = 0, inNum1 = 0, inNum2 = 0; //declaire variable to use in switch later
+	string task, tasklist;
+	vector<string>tasks;
+	list<string>tasklist;
+
 	while (choice != -99) //while loop to keep thing running until you don't need it
 	{
+		while (getline(&_str:inFile, &_str : task)) {
+			count++;
+			task.push_back();
+		}
+		while (getline(&_str:inFile, &_str : tasklist)) {
+			count++;
+			tasklist.push_back();
+		}
 		cout << "1.Display all items\n 2.Display selected items\n 3.Mark Task as done\n 4.Exit\n"
 		cin >> choice;
 		switch (choice) {
 		case 1:
-			//call function to show all items
-
+			if (inFile.is_open())
+			{
+				task.traverse();
+				cout << "\n";
+			}
+			else {
+				cout << "File is empty\n";
+			}
 			break;
 		case 2:
-			//call function to display selected item
-
+			cin >> inNum1;
+			cout << task[inNum1];
 			break;
 		case 3:
-			//call function to mark task
-
+			cin >> inNum2;
+			cout << task[inNum2];
 			break;
 		case 4:
-			//exit
+			vector<string>finished(tasklist.begin(), tasklist.end());
+			while (ofFile)
+			{
+				ofFile >> finished.traverse;
+
+			}
 			exit;
 			break;
 		default:
@@ -44,24 +70,7 @@ int main()
 			break;
 		}
 	}
+	inFile.close("text.txt");
+	ofFile.close("text.txt");
 	return 0;
-}
-
-//choice 1 function
-void AllItems() {
-	fstream File;
-	File.open("Text.txt");
-	File.close();
-}
-
-//choice 2 function
-void Selected() {
-	fstream File;
-	File.open("Text.txt");
-	File.close();
-}
-
-//choice 3 function
-void Done() {
-
 }
