@@ -2,6 +2,7 @@
 // 06.24.2022
 
 #include <iostream>
+#include <chrono>
 using namespace std;
 void RecursiveTower(int, char, char, char); //recursive solution
 
@@ -117,24 +118,27 @@ int main()
 {
     struct Stack* A, * C, * B;
 	int DiskNum, choice = 0;
-
-	
+    auto start = chrono::steady_clock::now();
+    auto end = chrono::steady_clock::now();
 	cout << "Choose what solution you want to use\n1.Recursive\n2.Iterative\n3.Exit Program\n#";
 	cin >> choice;
 
 	while (choice != -99)
 	{
+        
 		switch (choice) 
 		{
 		case 1:
             cout << "How many disks do you have?\n#";
             cin >> DiskNum;
+            start = chrono::steady_clock::now();
 			RecursiveTower(DiskNum, 'A', 'B', 'C'); //recursive solution
 			cout << endl << endl;
 			break;
 		case 2:
             cout << "How many disks do you have?\n#";
             cin >> DiskNum;
+            start = chrono::steady_clock::now();
             A = createStack(DiskNum);
             B = createStack(DiskNum);
             C = createStack(DiskNum);
@@ -148,7 +152,9 @@ int main()
 			cout << "Wrong option! Try again.\n";
 			break;
 		}
-
+        end = chrono::steady_clock::now();
+        chrono::duration<double>elapsed_seconds = end - start;
+        cout << "\nelapsed time: " << elapsed_seconds.count() << "s\n";
 		cout << "Choose what solution you want to use\n1.Recursive\n2.Iterative\n3.Exit Program\n#";
 		cin >> choice;
 	}
